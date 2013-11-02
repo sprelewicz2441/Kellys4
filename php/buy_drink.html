@@ -15,11 +15,11 @@
         <!--Content-->
         <div data-role="content">
             <div id="login-wrap">
-                <form data-ajax="false" id="login-form"> Up
+                <form data-ajax="true" id="login-form" action="/buydrink/buydrink.php"> Up
                     <h3 id="login-text">Fill out below:</h3>
                     <div>
-                        <input id="login-username" type="text" placeholder="Who is it for?" />
-                        <input id="login-password" type="password" placeholder="Who are you?" />
+                        <input id="login-username" type="text" name = "recipient" placeholder="Who is it for?" />
+                        <input id="login-password" type="password" name="buyer" placeholder="Who are you?" />
                     </div>
 
                     <div class="buttons" class="ui-bar">
