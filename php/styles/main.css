@@ -1,5 +1,6 @@
 .full-height {
-    background: url(./images/KellyLogo.jpg) no-repeat center left 100%;
+    background: no-repeat center left 100%;
+    background-image: url(./images/KellyLogo.jpg);
     background-repeat: no-repeat scroll;
     background-position: center top;
     position: relative;
