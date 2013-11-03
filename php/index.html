@@ -18,12 +18,10 @@
 <body>
 
     <!--Home-->
-    <div id="page-home" data-role="page">
-        <!--Header-->       
-        <img src="./styles/images/KellyLogo.jpg" style="width: 50px; "/>
-        
+    <div id="page-home" data-role="page" class="full-height">
+        <!--Header-->               
  		<div class="header">
-         		<h3>Yo, Shanghai Kelly's Raps!</h3>
+            <h3>Yo, Shanghai Kelly's Raps!</h3>
         </div>
         <!--Content-->
         <div data-role="content">            
@@ -41,6 +39,9 @@
                 </li>-->
                 <li>
                     <a href="#page-location" data-transition="slide">Location Example</a>
+                </li>
+                <li>
+                    <a href="#page-bartenders" data-transition="slide">Who's Working Right Now?</a>
                 </li>
             </ul>
         </div>
@@ -79,6 +80,84 @@
             <span class="footerText">Built by Scott R. Prelewicz</span>
         </div>
 
+    </div>
+    
+    <div id="page-bartenders" data-role="page" data-add-back-btn="true" class="full-height">
+            <div data-role="header" data-position="fixed">
+            	<h1>Bartender</h1>
+        	</div>
+            <div data-role="content">
+                <p>
+                    Your current bartender(s):
+                </p>
+                <h2 id="current-bartender">Getting...</h2>
+            </div>
+            
+            <!--Footer-->
+            <div id="page-location-footer" data-role="footer" data-position="fixed" data-id="oneFooter">
+                <span class="footerText">Built by Scott R. Prelewicz</span>
+            </div>
+
+        <script type="text/javascript">   
+                     
+            var text = getBartender();
+
+            $('#current-bartender').replaceWith('<h2>' + text + '</h2>'); //getBartender();
+            
+            function getBartender() {
+                var d = new Date();
+            	var dayOfWeek = d.getDay();
+            	var time = d.getHours();
+                
+                var shifts = new Object();
+                shifts = [
+                    [
+                        'Caskey and Christian', 'Clayton', 'Clayton', 'Daire'
+                    ],
+                    [
+                        'Daire', 'Kat', 'Greg', 'Subby'
+                    ],
+                    [
+                        'Subby', 'Kat', 'Greg', 'Christian'
+                    ],
+                    [
+                        'Christian', 'Kat', 'Dave', 'Brian'
+                    ],
+                    [
+                        'Brian', 'Dave', 'Dave', 'Caskey and Daire'
+                    ],
+                    [
+                        'Caskey and Daire', 'Dave', 'Dave', 'Kat and Brian'
+                    ],
+                    [
+                        'Kat and Brian', 'Dave', 'Dave', 'Caskey and Christian'
+                    ]
+                    
+                    
+                ];
+                var currentShift;
+                
+                time = time;
+                
+                if (time >= 12 && time <= 16) {
+                    currentShift = 1;
+                } else if (time > 16 && time < 20) {
+                    currentShift = 2;
+                } else if ((time > 20 && time <=23) ) {
+                    currentShift = 3;   
+                } else if (time >=- 0  && time <= 2) {
+                    currentShift = 0;
+                } else {
+                    return 'Closed';
+                }
+                
+                return shifts[dayOfWeek][currentShift];
+            }
+            
+            
+            
+        </script>
+        
     </div>
     <script type="text/javascript">
         document.addEventListener('deviceready', function () {
